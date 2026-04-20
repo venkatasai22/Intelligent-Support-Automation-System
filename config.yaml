@@ -1,0 +1,156 @@
+# Configuration for Intelligent Support Automation System
+
+# API Configuration
+API_HOST: "0.0.0.0"
+API_PORT: 8000
+API_WORKERS: 4
+API_RELOAD: true
+DEBUG: false
+
+# Database Configuration
+DATABASE:
+  DRIVER: "postgresql"
+  HOST: "localhost"
+  PORT: 5432
+  NAME: "support_automation"
+  USER: "postgres"
+  PASSWORD: "${DB_PASSWORD}"
+  POOL_SIZE: 20
+  MAX_OVERFLOW: 40
+
+# Redis Configuration
+REDIS:
+  HOST: "localhost"
+  PORT: 6379
+  DB: 0
+  PASSWORD: null
+  CLUSTER_MODE: false
+  CLUSTER_NODES: []
+
+# Cache Configuration
+CACHE:
+  QUERY_CACHE:
+    ENABLED: true
+    TTL_SECONDS: 3600
+    MAX_SIZE_MB: 500
+  EMBEDDING_CACHE:
+    ENABLED: true
+    TTL_SECONDS: 86400
+    MAX_SIZE_MB: 1000
+  RESPONSE_CACHE:
+    ENABLED: true
+    TTL_SECONDS: 3600
+    MAX_SIZE_MB: 500
+
+# Model Configuration
+MODEL:
+  MODEL_NAME: "bert-support-v2.1"
+  MODEL_PATH: "models/current"
+  VERSION: "2.1"
+  ACCURACY: 0.83
+  BATCH_SIZE: 32
+  MAX_SEQUENCE_LENGTH: 512
+  INFERENCE_TIMEOUT_MS: 5000
+  USE_GPU: true
+  GPU_MEMORY_FRACTION: 0.8
+
+# NLP Configuration
+NLP:
+  TOKENIZER: "bert-base-uncased"
+  NORMALIZE_INPUT: true
+  REMOVE_PUNCTUATION: true
+  LOWERCASE: true
+  REMOVE_DUPLICATE_SPACES: true
+
+# Backend Service Integration
+BACKEND_SERVICES:
+  KNOWLEDGE_BASE:
+    ENABLED: true
+    URL: "https://api.example.com/kb"
+    TIMEOUT_SECONDS: 5
+    RETRY_ATTEMPTS: 3
+  
+  FAQ_DATABASE:
+    ENABLED: true
+    HOST: "localhost"
+    PORT: 5432
+    TABLE: "faqs"
+    CACHE_RESULTS: true
+  
+  CRM_SYSTEM:
+    ENABLED: false
+    URL: "https://crm.example.com"
+    API_KEY: "${CRM_API_KEY}"
+    TIMEOUT_SECONDS: 10
+
+# Feedback Collection
+FEEDBACK:
+  COLLECTION_ENABLED: true
+  STORAGE_TABLE: "user_feedback"
+  VALIDATION_THRESHOLD: 0.8
+  DAILY_EXPORT: true
+  EXPORT_PATH: "data/feedback"
+
+# Retraining Pipeline
+RETRAINING:
+  ENABLED: true
+  SCHEDULE: "0 2 * * *"  # Daily at 2 AM
+  MIN_SAMPLES_FOR_TRAINING: 1000
+  VALIDATION_SPLIT: 0.1
+  TEST_SPLIT: 0.1
+  AB_TEST_TRAFFIC_PERCENTAGE: 5
+  AB_TEST_DURATION_HOURS: 24
+
+# Authentication
+AUTH:
+  ENABLED: true
+  JWT_SECRET: "${JWT_SECRET}"
+  JWT_ALGORITHM: "HS256"
+  JWT_EXPIRATION_HOURS: 24
+  API_KEY_PREFIX: "key_"
+
+# Monitoring & Logging
+MONITORING:
+  PROMETHEUS_ENABLED: true
+  PROMETHEUS_PORT: 9090
+  METRICS_UPDATE_INTERVAL_SECONDS: 60
+  
+LOGGING:
+  LEVEL: "INFO"
+  FORMAT: "json"
+  FILE_ENABLED: true
+  FILE_PATH: "logs/app.log"
+  MAX_FILE_SIZE_MB: 100
+  BACKUP_COUNT: 10
+  SENTRY_ENABLED: false
+  SENTRY_DSN: "${SENTRY_DSN}"
+
+# Rate Limiting
+RATE_LIMITING:
+  ENABLED: true
+  REQUESTS_PER_MINUTE: 1000
+  REQUESTS_PER_HOUR: 50000
+  REQUESTS_PER_DAY: 1000000
+
+# Performance Tuning
+PERFORMANCE:
+  CONNECTION_POOL_SIZE: 50
+  THREAD_POOL_SIZE: 16
+  QUERY_NORMALIZATION_CACHE_SIZE: 10000
+  CONFIDENCE_THRESHOLD: 0.5
+  RESPONSE_TIMEOUT_MS: 10000
+
+# Features
+FEATURES:
+  ENABLE_CACHING: true
+  ENABLE_BATCH_PROCESSING: true
+  ENABLE_FEEDBACK_COLLECTION: true
+  ENABLE_MODEL_VERSIONING: true
+  ENABLE_QUERY_ANALYTICS: true
+  ENABLE_A_B_TESTING: true
+
+# Deployment Environment
+ENVIRONMENT: "development"  # development, staging, production
+VERSION: "2.1"
+BUILD_ID: "${BUILD_ID}"
+TIMESTAMP: "${DEPLOYMENT_TIMESTAMP}"
