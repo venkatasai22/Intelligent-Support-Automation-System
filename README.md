@@ -5,13 +5,13 @@ An advanced NLP-based support system that integrates machine learning models wit
 
 ## Key Features
 
-### 🤖 NLP-Based Support System
+### NLP-Based Support System
 - Integration of state-of-the-art ML models with backend APIs
 - Real-time query processing and classification
 - Multi-language support for global support operations
 - Intent recognition and entity extraction
 
-### 📊 Feedback-Driven Retraining Pipeline
+### Feedback-Driven Retraining Pipeline
 - Continuous model improvement through user feedback
 - Automated data collection and validation
 - Version control for model iterations
@@ -22,13 +22,13 @@ An advanced NLP-based support system that integrates machine learning models wit
 - **Current Accuracy:** 83%
 - **Improvement:** +19 percentage points
 
-### 🚀 REST-Based Inference System
+###  REST-Based Inference System
 - Scalable API architecture for handling concurrent requests
 - Load balancing across multiple inference instances
 - Graceful degradation and fallback mechanisms
 - Response caching for frequently asked queries
 
-### ⚡ Performance Optimization
+### Performance Optimization
 - **Response Latency Reduction:** 35% improvement
 - **Optimization Techniques:**
   - Multi-layer caching strategy (query, response, embedding caches)
